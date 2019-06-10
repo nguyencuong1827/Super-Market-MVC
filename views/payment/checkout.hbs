@@ -1,0 +1,170 @@
+﻿<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1">
+				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+				<li class="active">Thanh toán</li>
+			</ol>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- checkout -->
+	<div class="checkout">
+		<div class="container">
+			<h2>Các sản phẩm của bạn: <span>3 Sản phẩm</span></h2>
+			<div class="checkout-right">
+				<table class="timetable_sub">
+					<thead>
+						<tr>
+							<th>STT</th>	
+							<th>Sản phẩm</th>
+							<th>Số lượng</th>
+							<th>Tên sản phẩm</th>
+							<th>Giá</th>
+							<th>Xóa</th>
+						</tr>
+					</thead>
+					<tr class="rem1">
+						<td class="invert">1</td>
+						<td class="invert-image"><a href="single.html"><img src="images/1.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert">
+							 <div class="quantity"> 
+								<div class="quantity-select">                           
+									<div class="entry value-minus">&nbsp;</div>
+									<div class="entry value"><span>1</span></div>
+									<div class="entry value-plus active">&nbsp;</div>
+								</div>
+							</div>
+						</td>
+						<td class="invert">Tata Salt</td>
+						
+						<td class="invert">$290.00</td>
+						<td class="invert">
+							<div class="rem">
+								<div class="close1"> </div>
+							</div>
+							<script>$(document).ready(function(c) {
+								$('.close1').on('click', function(c){
+									$('.rem1').fadeOut('slow', function(c){
+										$('.rem1').remove();
+									});
+									});	  
+								});
+						   </script>
+						</td>
+					</tr>
+					<tr class="rem2">
+						<td class="invert">2</td>
+						<td class="invert-image"><a href="single.html"><img src="images/2.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert">
+							 <div class="quantity"> 
+								<div class="quantity-select">                           
+									<div class="entry value-minus">&nbsp;</div>
+									<div class="entry value"><span>1</span></div>
+									<div class="entry value-plus active">&nbsp;</div>
+								</div>
+							</div>
+						</td>
+						<td class="invert">Fortune oil</td>
+					
+						<td class="invert">$250.00</td>
+						<td class="invert">
+							<div class="rem">
+								<div class="close2"> </div>
+							</div>
+							<script>$(document).ready(function(c) {
+								$('.close2').on('click', function(c){
+									$('.rem2').fadeOut('slow', function(c){
+										$('.rem2').remove();
+									});
+									});	  
+								});
+						   </script>
+						</td>
+					</tr>
+					<tr class="rem3">
+						<td class="invert">3</td>
+						<td class="invert-image"><a href="single.html"><img src="images/3.png" alt=" " class="img-responsive" /></a></td>
+						<td class="invert">
+							 <div class="quantity"> 
+								<div class="quantity-select">                           
+									<div class="entry value-minus">&nbsp;</div>
+									<div class="entry value"><span>1</span></div>
+									<div class="entry value-plus active">&nbsp;</div>
+								</div>
+							</div>
+						</td>
+						<td class="invert">Aashirvaad atta</td>
+						
+						<td class="invert">$15.00</td>
+						<td class="invert">
+							<div class="rem">
+								<div class="close3"> </div>
+							</div>
+							<script>$(document).ready(function(c) {
+								$('.close3').on('click', function(c){
+									$('.rem3').fadeOut('slow', function(c){
+										$('.rem3').remove();
+									});
+									});	  
+								});
+						   </script>
+						</td>
+					</tr>
+								<!--quantity-->
+									<script>
+									$('.value-plus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+										if(newVal>=1) divUpd.text(newVal);
+									});
+									</script>
+								<!--quantity-->
+				</table>
+			</div>
+			
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="checkout-left">
+							<div class="checkout-left-basket">
+								<h4>Hóa đơn</h4>
+								<ul>
+									<li>Tata Salt <i>-</i> <span>290.000 đ </span></li>
+									<li>Fortune oil <i>-</i> <span>250.000 đ </span></li>
+									<li>Aashirvaad atta <i>-</i> <span>15.000 đ </span></li>
+									<li></li>
+									<li>Tổng <i>-</i> <span>555.000 đ</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-9">
+						<div class="container">
+								<div class="login-form-grids">
+									<h5>Thông tin giao hàng</h5>
+									<form action="#" method="post">
+										<input type="text" placeholder="Họ tên người nhận" required=" " >
+										<input type="text" placeholder="Địa chỉ" required=" " >
+										<input type="text" placeholder="Số điện thoại" required=" " >
+									
+									</form>
+									<div class="checkout-right-basket">
+										<a href="#"><span aria-hidden="true"></span>Xác nhận đặt hàng</a>
+									</div>
+									
+								</div>
+								
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="clearfix"> </div>
+			
+		</div>
+	</div>
+<!-- //checkout -->
