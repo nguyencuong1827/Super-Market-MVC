@@ -1,44 +1,65 @@
 ﻿<!-- breadcrumbs -->
-	<div class="breadcrumbs">
-		<div class="container">
-			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-				<li class="active">Tạo tài khoản</li>
-			</ol>
-		</div>
+<div class="breadcrumbs">
+	<div class="container">
+		<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+			<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+			<li class="active">Tạo tài khoản</li>
+		</ol>
 	</div>
+</div>
 <!-- //breadcrumbs -->
 <!-- register -->
-	<div class="register">
-		<div class="container">
-			<h2>Điền vào các mục sau</h2>
-			<div class="login-form-grids">
-				<h5>Thông tin cá nhân</h5>
-				<form action="#" method="post">
-					<input type="text" placeholder="Họ..." required=" " >
-					<input type="text" placeholder="Tên đệm và tên chính..." required=" " >
-				</form>
+<div class="register">
+	<div class="container">
+		<h2>Điền vào các mục sau</h2>
+
+		<div class="login-form-grids">
+			{{#if errors}}
+			{{#each errors}}
+				<div class="alert alert-danger">{{this.msg}}</div>
+			{{/each}}
+			{{/if}}
+			<form action="/user/register" method="POST">
+				<h6>Thông tin cá nhân</h6>
+
+				<input type="text" placeholder="Họ tên" required="true" name="name">
+				<input type="text" placeholder="Ngày sinh" onfocus="(this.type='date')" onblur="(this.type='text')"
+					required=" " name="birthDay">
+				<div class="col-sm-8">
+					<select placeholder="Giới tính" name="gender" required=" ">
+						<option value="" disabled selected>Giới tính</option>
+						<option value="Nam">Nam</option>
+						<option value="Nữ">Nữ</option>
+						<option value="Khác">Khác</option>
+					</select>
+				</div>
+				<input type="text" placeholder="Số điện thoại" required=" " name="phoneNumber">
+				<input type="email" placeholder="Email" required=" " name="email">
+
 				<div class="register-check-box">
 					<div class="check">
-						<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Nhận thông báo</label>
+						<label class="checkbox"><input type="checkbox" name="acceptNotify"><i> </i>Nhận thông
+							báo</label>
 					</div>
 				</div>
 				<h6>Thông tin tài khoản</h6>
-					<form action="#" method="post">
-					<input type="email" placeholder="Đia chỉ email" required=" " >
-					<input type="password" placeholder="Mật khẩu" required=" " >
-					<input type="password" placeholder="Xác nhận mật khẩu" required=" " >
-					<div class="register-check-box">
-						<div class="check">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Tôi đồng ý với các điều khoản và điều kiện.</label>
-						</div>
+
+				<input type="text" placeholder="Tài khoản" required=" " name="username">
+				<input type="password" placeholder="Mật khẩu" required=" " name="password">
+				<input type="password" placeholder="Xác nhận mật khẩu" required=" " name="password2">
+
+				<div class="register-check-box">
+					<div class="check">
+						<label class="checkbox"><input type="checkbox" name="acceptRule"><i> </i>Tôi đồng ý với các điều
+							khoản và điều kiện.</label>
 					</div>
-					<input type="submit" value="Đăng ký">
-				</form>
-			</div>
-			<div class="register-home">
-				<a href="/">Trang chủ</a>
-			</div>
+				</div>
+				<input type="submit" value="Đăng ký">
+			</form>
+		</div>
+		<div class="register-home">
+			<a href="/">Trang chủ</a>
 		</div>
 	</div>
+</div>
 <!-- //register -->

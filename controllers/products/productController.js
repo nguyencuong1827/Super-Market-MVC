@@ -1,9 +1,8 @@
 const product = require('../../models/productModel');
 //Get all item
 //Đồ uống
-exports.drink_alcohol_list = function(req, res) {
-
-    product.find({'category': 'Bia rượu'}).exec((err,Product)=>{
+exports.drink_alcohol_list = async(req, res) => {
+    await product.find({'category': 'Bia rượu'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -13,9 +12,9 @@ exports.drink_alcohol_list = function(req, res) {
     })
 };
 
-exports.drink_nest_list = function(req, res) {
+exports.drink_nest_list = async(req, res) => {
 
-    product.find({'category': 'Nước yến'}).exec((err,Product)=>{
+    await product.find({'category': 'Nước yến'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -25,9 +24,9 @@ exports.drink_nest_list = function(req, res) {
     })
 };
 
-exports.drink_soft_list = function(req, res) {
+exports.drink_soft_list = async(req, res) => {
 
-    product.find({'category': 'Nước ngọt'}).exec((err,Product)=>{
+    await product.find({'category': 'Nước ngọt'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -37,9 +36,9 @@ exports.drink_soft_list = function(req, res) {
     })
 };
 
-exports.drink_springWater_list = function(req, res) {
+exports.drink_springWater_list = async(req, res) => {
 
-    product.find({'category': 'Nước suối'}).exec((err,Product)=>{
+    await product.find({'category': 'Nước suối'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -52,9 +51,9 @@ exports.drink_springWater_list = function(req, res) {
 
 
 //Thực phẩm
-exports.food_dry_list = function(req, res) {
+exports.food_dry_list = async(req, res) => {
 
-    product.find({'category': 'Đồ khô'}).exec((err,Product)=>{
+    await product.find({'category': 'Đồ khô'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -64,9 +63,9 @@ exports.food_dry_list = function(req, res) {
     })
 };
 
-exports.food_meat_list = function(req, res) {
+exports.food_meat_list = async(req, res) => {
 
-    product.find({'category': 'Thịt cá'}).exec((err,Product)=>{
+    await  product.find({'category': 'Thịt cá'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -76,9 +75,9 @@ exports.food_meat_list = function(req, res) {
     })
 };
 
-exports.food_rice_list = function(req, res) {
+exports.food_rice_list = async(req, res) => {
 
-    product.find({'category': 'Gạo'}).exec((err,Product)=>{
+    await product.find({'category': 'Gạo'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -88,9 +87,9 @@ exports.food_rice_list = function(req, res) {
     })
 };
 
-exports.food_vegetable_list = function(req, res) {
+exports.food_vegetable_list = async(req, res) => {
 
-    product.find({'category': 'Rau củ'}).exec((err,Product)=>{
+    await product.find({'category': 'Rau củ'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -102,9 +101,9 @@ exports.food_vegetable_list = function(req, res) {
 
 
 //Ăn vặt
-exports.gourmet_list = function(req, res) {
+exports.gourmet_list = async(req, res) => {
 
-    product.find({'category': 'Ăn vặt'}).exec((err,Product)=>{
+    await product.find({'category': 'Ăn vặt'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -115,9 +114,9 @@ exports.gourmet_list = function(req, res) {
 };
 
 //Đồ gia dụng
-exports.houseware_cleaning_list = function(req, res) {
+exports.houseware_cleaning_list = async(req, res) => {
 
-    product.find({'category': 'Vệ sinh nhà cửa'}).exec((err,Product)=>{
+    await product.find({'category': 'Vệ sinh nhà cửa'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -127,9 +126,9 @@ exports.houseware_cleaning_list = function(req, res) {
     })
 };
 
-exports.houseware_diningRoom_list = function(req, res) {
+exports.houseware_diningRoom_list = async(req, res) => {
 
-    product.find({'category': 'Phòng ăn'}).exec((err,Product)=>{
+    await product.find({'category': 'Phòng ăn'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -139,9 +138,9 @@ exports.houseware_diningRoom_list = function(req, res) {
     })
 };
 
-exports.houseware_kitchen_list = function(req, res) {
+exports.houseware_kitchen_list = async(req, res) => {
 
-    product.find({'category': 'Dụng cụ bếp'}).exec((err,Product)=>{
+    await product.find({'category': 'Dụng cụ bếp'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -151,9 +150,9 @@ exports.houseware_kitchen_list = function(req, res) {
     })
 };
 
-exports.houseware_light_list = function(req, res) {
+exports.houseware_light_list = async(req, res) => {
 
-    product.find({'category': 'Đèn điện'}).exec((err,Product)=>{
+    await product.find({'category': 'Đèn điện'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -164,9 +163,9 @@ exports.houseware_light_list = function(req, res) {
 };
 
 //Em bé
-exports.babyCare_milk_list = function(req, res) {
+exports.babyCare_milk_list = async(req, res) => {
 
-    product.find({'category': 'Sữa'}).exec((err,Product)=>{
+    await product.find({'category': 'Sữa'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -176,9 +175,9 @@ exports.babyCare_milk_list = function(req, res) {
     })
 };
 
-exports.babyCare_powder_list = function(req, res) {
+exports.babyCare_powder_list = async(req, res) => {
 
-    product.find({'category': 'Phấn'}).exec((err,Product)=>{
+    await product.find({'category': 'Phấn'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -188,9 +187,9 @@ exports.babyCare_powder_list = function(req, res) {
     })
 };
 
-exports.babyCare_shampoo_list = function(req, res) {
+exports.babyCare_shampoo_list = async(req, res) => {
 
-    product.find({'category': 'Dầu gội'}).exec((err,Product)=>{
+    await product.find({'category': 'Dầu gội'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -200,9 +199,9 @@ exports.babyCare_shampoo_list = function(req, res) {
     })
 };
 
-exports.babyCare_utensil_list = function(req, res) {
+exports.babyCare_utensil_list = async(req, res) => {
 
-    product.find({'category': 'Đồ dùng'}).exec((err,Product)=>{
+    await product.find({'category': 'Đồ dùng'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -213,9 +212,9 @@ exports.babyCare_utensil_list = function(req, res) {
 };
 
 //Khác
-exports.other_list = function(req, res) {
+exports.other_list = async(req, res) => {
 
-    product.find({'category': 'Khác'}).exec((err,Product)=>{
+    await product.find({'category': 'Khác'}).exec((err,Product)=>{
         if(err){
             console.log('that bai');
         }
@@ -231,8 +230,8 @@ exports.sale_list = function(req, res) {
 }
 
 //VIEW single product
-exports.detailProduct = function (req, res) {
-    product.findById(req.params.id).then(productFound =>{
+exports.detailProduct = async (req, res) => {
+    await product.findById(req.params.id).then(productFound =>{
         if (!productFound)
         {
             res.send('that bai');
@@ -242,12 +241,12 @@ exports.detailProduct = function (req, res) {
     //res.render('viewProduct/single')
 }
 
-exports.sortByColor = function (req, res) {
+exports.sortByColor = function(req, res)  {
     res.send('sort by color')
 }
-exports.sortBySize = function (req, res) {
+exports.sortBySize = function(req, res) {
     res.send('sort by size')
 }
-exports.sortByCategory = function (req, res) {
+exports.sortByCategory = function(req, res) {
     res.send('sort by category')
 }

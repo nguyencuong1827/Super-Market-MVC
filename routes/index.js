@@ -3,10 +3,6 @@ var router = express.Router();
 
 var home_controller = require('../controllers/homeController');
 
-var login_controller = require('../controllers/loginController');
-var register_controller = require('../controllers/registerController');
-var forgotPassword_controller = require('../controllers/forgotPasswordController');
-
 var checkout_controller = require('../controllers/checkoutController');
 
 var single2_controller = require('../controllers/single2Controller');
@@ -19,10 +15,6 @@ var contactUS_controller = require('../controllers/contactUSController');
 router.get('/', home_controller.home_page);
 
 
-/*GET user page*/
-router.get('/login', login_controller.login_page);
-router.get('/register', register_controller.register_page);
-router.get('/forgotPassword', forgotPassword_controller.forgotPassword_page)
 
 
 /*GET payment page*/

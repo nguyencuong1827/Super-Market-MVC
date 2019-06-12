@@ -1,3 +1,3 @@
 exports.home_page = function(req, res){
-    res.render('index');
+    res.render('index', {title: 'Trang chủ'});
 };

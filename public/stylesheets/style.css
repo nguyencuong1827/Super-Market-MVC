@@ -913,13 +913,21 @@ a.w3_agile_vimeo:hover{
     border: 1px solid #DBDBDB;
     padding: 10px 10px 10px 10px;
     font-size: 14px;
-    color: #999;
+    color: rgb(0, 0, 0);
     display: block;
     width: 100%;
 }
-
+.login-form-grids input[type="text"]{
+	margin:1em 0 0;
+}
 .login-form-grids input[type="password"]{
 	margin:1em 0 0;
+}
+.login-form-grids input[type="email"]{
+	margin:1em 0 0;
+}
+.login-form-grids select{
+	margin:1em -1em 1em;
 }
 .forgot {
     margin: 1.5em 0 0;
@@ -1001,7 +1009,7 @@ a.w3_agile_vimeo:hover{
 .register-check-box label{
 	font-size:14px;
 	font-weight:500;
-	color:#999;
+	color:rgb(0, 0, 0);
 	margin: 1.5em 0 0 0em;
 }
 .checkbox {
@@ -1644,10 +1652,10 @@ h3.w3_agile_header:after,h2.w3_agile_header:after{
 	margin-right: 1px;
 }
 .rslides_tabs a {
-	width: auto;
+	/*width: auto;*/
 	line-height: 20px;
 	padding: 9px 20px;
-	height: auto;
+	/*height: auto;*/
 	background: transparent;
 	display: inline;
 }
@@ -1741,7 +1749,7 @@ h3.w3_agile_header:after,h2.w3_agile_header:after{
   margin: 0;
 }
 .rslides li {
-  -webkit-backface-visibility: hidden;
+  /*-webkit-backface-visibility: hidden;*/
   position: absolute;
   display: none;
   width: 100%;
@@ -2024,7 +2032,7 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
 
 .input__label {
 	display: inline-block;
-    float: right;
+    /*float: right;*/
     padding: 0 1em;
     width: 40%;
     color: #212121;

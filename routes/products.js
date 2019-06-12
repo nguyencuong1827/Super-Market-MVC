@@ -38,6 +38,6 @@ router.get('/other', products_controller.other_list);
 router.get('/sale', products_controller.sale_list);
 
 //GET info product page 
-router.get('/:id', products_controller.detailProduct)
+router.get('/:catalog/:category/:id', products_controller.detailProduct)
 
 module.exports = router;
