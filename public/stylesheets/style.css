@@ -77,7 +77,7 @@ input[type="submit"],#PPMiniCart .minicart-submit,.w3ls_vegetables ul li a,input
 }
 .w3l_offers {
     float: left;
-    padding: 9px 0;
+    padding: 15px 0;
 	width: 47%;
 }
 .w3l_offers p {
@@ -129,7 +129,6 @@ button.btn.btn-default.search:hover {
     float: left;
     width: 50%;
     text-align: center;
-    padding: 9px 0;
 }
 .agile-login ul li {
     display: inline-block;
@@ -137,7 +136,6 @@ button.btn.btn-default.search:hover {
 }
 .agile-login ul li a {
     font-size: 1em;
-    text-transform: capitalize;
     color: #fff;
     text-decoration: none;
 }
@@ -916,8 +914,10 @@ a.w3_agile_vimeo:hover{
     color: rgb(0, 0, 0);
     display: block;
     width: 100%;
+    border-radius: 8px;
 }
 .login-form-grids input[type="text"]{
+   
 	margin:1em 0 0;
 }
 .login-form-grids input[type="password"]{
@@ -927,7 +927,8 @@ a.w3_agile_vimeo:hover{
 	margin:1em 0 0;
 }
 .login-form-grids select{
-	margin:1em -1em 1em;
+    margin:1em -1em 1em;
+    border-radius: 8px;
 }
 .forgot {
     margin: 1.5em 0 0;
@@ -942,6 +943,7 @@ a.w3_agile_vimeo:hover{
     width: 100%;
     background:#3399cc;
     margin: 1.5em 0 0;
+    border-radius: 8px;
 }
 .login-form-grids input[type="submit"]:hover{
 	background:#fe9126;
@@ -991,7 +993,7 @@ a.w3_agile_vimeo:hover{
 /*-- //login --*/
 /*-- register --*/
 .register {
-    padding: 5em 0;
+    padding: 2em 0;
 }
 .login-form-grids h5,.login-form-grids h6{
 	font-size:1em;
@@ -1000,10 +1002,10 @@ a.w3_agile_vimeo:hover{
 	margin:0 0 2em;
 }
 .login-form-grids input[type="text"]{
-	background:url(../images/img-sp.png) no-repeat 5px -259px #fff;
+	background: no-repeat 5px -259px #fff;
 }
 .login-form-grids input[type="text"]:nth-child(2){
-	background:url(../images/img-sp.png) no-repeat 0px -298px #fff;
+	background: no-repeat 0px -298px #fff;
 	margin:1em 0;
 }
 .register-check-box label{
@@ -1061,15 +1063,16 @@ a.w3_agile_vimeo:hover{
     margin:1em 0;
 }
 .register-home{
-	margin:2em 0 0;
-	text-align:center;
+	margin:1em 0 0;
+    text-align:center;
 }
 .register-home a{
 	padding: 8px 45px;
-    background: #9F9F9F;
-	color:#fff;
+    background: rgb(247, 181, 0);
+	color:rgb(31, 26, 14);
 	font-size:1em;
-	text-decoration:none;
+    text-decoration:none;
+    border-radius: 8px;
 }
 .register-home a:hover{
 	background:#fe9126;
@@ -3408,4 +3411,8 @@ td.invert-image a img {
 }
 img.listProduct{
     width: 120px;
+}
+.custom-alert{
+    margin: 1em 0 0;
+    border-radius: 3px;
 }

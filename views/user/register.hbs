@@ -3,7 +3,7 @@
 	<div class="container">
 		<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
 			<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-			<li class="active">Tạo tài khoản</li>
+			<li class="active">Đăng ký</li>
 		</ol>
 	</div>
 </div>
@@ -12,12 +12,9 @@
 <div class="register">
 	<div class="container">
 		<h2>Điền vào các mục sau</h2>
-
 		<div class="login-form-grids">
 			{{#if errors}}
-			{{#each errors}}
-				<div class="alert alert-danger">{{this.msg}}</div>
-			{{/each}}
+				<div class="alert alert-danger">{{errors.message}}</div>
 			{{/if}}
 			<form action="/user/register" method="POST">
 				<h6>Thông tin cá nhân</h6>
@@ -34,7 +31,10 @@
 					</select>
 				</div>
 				<input type="text" placeholder="Số điện thoại" required=" " name="phoneNumber">
-				<input type="email" placeholder="Email" required=" " name="email">
+
+				<div id="error-message1" class="custom-alert alert-danger" aria-hidden="true" role="alert"></div>
+
+				<input id="email" type="email" placeholder="Email" required=" " name="email">
 
 				<div class="register-check-box">
 					<div class="check">
@@ -43,10 +43,11 @@
 					</div>
 				</div>
 				<h6>Thông tin tài khoản</h6>
-
-				<input type="text" placeholder="Tài khoản" required=" " name="username">
-				<input type="password" placeholder="Mật khẩu" required=" " name="password">
-				<input type="password" placeholder="Xác nhận mật khẩu" required=" " name="password2">
+				<div id="error-message2" class="custom-alert alert-danger" aria-hidden="true" role="alert"></div>
+				<input id="username" type="text" placeholder="Tài khoản" required=" " name="username">
+				<input id="password" type="password" placeholder="Mật khẩu" required=" " name="password">
+				<div id="error-message3" class="custom-alert alert-danger" aria-hidden="true" role="alert"></div>
+				<input id="password2" type="password" placeholder="Xác nhận mật khẩu" required=" " name="password2">
 
 				<div class="register-check-box">
 					<div class="check">
@@ -54,7 +55,7 @@
 							khoản và điều kiện.</label>
 					</div>
 				</div>
-				<input type="submit" value="Đăng ký">
+				<input id="register" type="submit" value="Đăng ký">
 			</form>
 		</div>
 		<div class="register-home">
@@ -63,3 +64,57 @@
 	</div>
 </div>
 <!-- //register -->
+{{#extend "scripts"}}
+<script>
+	$('#email').change(function () {
+		console.log("keyyyy");
+		const email = document.getElementById("email");
+		$.getJSON('../../api/userAPI/checkEmail?email=' + $('#email').val(), function (data) {
+			if (!data) {
+				$('#error-message1').html('Email đã tồn tại');
+				$("#register").attr("disabled", true);
+				console.log(data);
+			}
+			else {
+				$('#error-message1').html('');
+				$("#register").attr("disabled", false);
+			}
+		});
+	});
+</script>
+<script>
+	$('#username').change(function () {
+		console.log("keyyyy");
+		const username = document.getElementById("username");
+		$.getJSON('../../api/userAPI/checkUsername?username=' + $('#username').val(), function (data) {
+			if (!data) {
+				$('#error-message2').html('Tài khoản đã tồn tại');
+				$("#register").attr("disabled", true);
+				console.log(data);
+			}
+			else {
+				$('#error-message2').html('');
+				$("#register").attr("disabled", false);
+			}
+		});
+	});
+</script>
+<script>
+
+	var password = document.getElementById("password");
+	var password2 = document.getElementById("password2");
+	function validatePassword() {
+		if (password.value != password2.value) {
+			$('#error-message3').html('Xác nhận mật khẩu không đúng');
+			$("#register").attr("disabled", true);
+		} else {
+			$('#error-message3').html('');
+			$("#register").attr("disabled", false);
+		}
+	}
+	password.change = validatePassword;
+	password2.onchange = validatePassword;
+
+
+</script>
+{{/extend}}

@@ -12,13 +12,19 @@
 <div class="login">
 	<div class="container">
 		<h2>Đăng nhập</h2>
+
 		<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-			{{#if message}}
-				<div class="alert alert-success">{{message}}</div>
+			{{#if success}}
+				<div class="alert alert-success">{{success}}</div>
 			{{/if}}
-			<form>
-				<input type="email" placeholder="Email" required=" ">
-				<input type="password" placeholder="Mật khẩu" required=" ">
+			{{#if error}}
+				<div class="alert alert-danger">{{error}}</div>
+			{{/if}}
+
+
+			<form action="/user/login" method="POST">
+				<input id="username" type="text" placeholder="Tài khoản" required=" " name="username">
+				<input id="password" type="password" placeholder="Mật khẩu" required=" " name="password">
 				<div class="forgot">
 					<a href="/user/forgotPassword">Quên mật khẩu?</a>
 				</div>

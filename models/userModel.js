@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
 
 var user = new Schema({
+  id: String,
   name: {
     type: String,
     required: true
@@ -43,40 +44,50 @@ var user = new Schema({
 
 const list = mongoose.model('users', user);
 
-
-
-const getUser = async (email) => {
-  return await list.findOne({'email': email});
+const saveUser = async (user) => {
+  const newUser = new list(user);
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(newUser.password, salt, function (err, hash) {
+      if (err) {
+        console.log(err);
+      }
+      newUser.password = hash;
+      newUser.save(function (err) {
+        if (err) {
+          console.log(err);
+          return false;
+        } else {
+          return true;
+        }
+      });
+    });
+  });
 };
-const validPassword = async (email, password) => {
-  const user = await getUser(email);
+
+const validPassword = async (username, password) => {
+  const user = await list.findOne({ 'username': username });
   if (!user)
-      return false;
-  return await bcrypt.compare(password, user.pass);
+    return false;
+  return await bcrypt.compare(password, user.password);
 };
 
-const checkEmail = function (email) {
-  const user =  list.findOne({'email': email});
-  if (user){
-    console.log(user.email);
-    return user.email;
-  }
-      
-  return "";
-}
-const checkUsername = function (username)  {
-  const user =  list.findOne({'username': username});
-  if (user)
-      return user.username;
-  return "";
-}
-
+const checkEmail = async (email) => {
+  const user = await list.findOne({ 'email': email });
+  if (!user)
+    return true;
+  return false;
+};
+const checkUsername = async (username) => {
+  const user = await list.findOne({ 'username': username });
+  if (!user)
+    return true;
+  return false;
+};
 
 module.exports = {
-  list : list,
-  getUser : getUser,
-  validPassword : validPassword,
-  checkEmail : checkEmail,
-  checkUsername : checkUsername
-}
-
+  list: list,
+  saveUser: saveUser,
+  validPassword: validPassword,
+  checkEmail: checkEmail,
+  checkUsername: checkUsername
+};

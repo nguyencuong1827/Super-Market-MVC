@@ -1,19 +1,21 @@
 var express = require('express');
 var router = express.Router();
-
-var home_controller = require('../controllers/homeController');
-
 var checkout_controller = require('../controllers/checkoutController');
-
 var single2_controller = require('../controllers/single2Controller');
-
 var about_controller = require('../controllers/aboutController');
 var faq_controller = require('../controllers/faqController');
 var contactUS_controller = require('../controllers/contactUSController');
+const { forwardAuthenticated } = require('../config/auth');
 
 /* GET home page. */
-router.get('/', home_controller.home_page);
-
+router.get('/', forwardAuthenticated, function(req, res, next) {
+  if (req.isAuthenticated()) {
+    res.render('index', {title: 'Trang chủ'});
+  }
+  else {
+    res.render('index', { title: 'Trang chủ' });
+  }
+});
 
 
 
