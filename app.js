@@ -63,6 +63,106 @@ hbs.registerHelper('block', function(name) {
   blocks[name] = [];
   return val;
 });
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
+  switch (operator) {
+      case '==':
+          return (v1 == v2) ? options.fn(this) : options.inverse(this);
+      case '===':
+          return (v1 === v2) ? options.fn(this) : options.inverse(this);
+      case '!==':
+          return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+      case '<':
+          return (v1 < v2) ? options.fn(this) : options.inverse(this);
+      case '<=':
+          return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+      case '>':
+          return (v1 > v2) ? options.fn(this) : options.inverse(this);
+      case '>=':
+          return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+      case '&&':
+          return (v1 && v2) ? options.fn(this) : options.inverse(this);
+      case '||':
+          return (v1 || v2) ? options.fn(this) : options.inverse(this);
+      default:
+          return options.inverse(this);
+  }
+});
+
+hbs.registerHelper('isSale', function (sale, options) {
+  const value = parseFloat(sale);
+  return (value > 0 && value < 100) ? options.fn(this) : options.inverse(this);
+});
+hbs.registerHelper('isNotSale', function (sale, options) {
+  const value = parseFloat(sale);
+  return (value <= 0 || value >= 100) ? options.fn(this) : options.inverse(this);
+});
+
+hbs.registerHelper('math', function (vl1, operator, vl2, options) {
+  const value1 = parseFloat(vl1);
+  const value2 = parseFloat(vl2);
+  return {
+    "+": value1 + value2,
+    "-": value1 - value2,
+    "*": value1 * value2,
+    "/": value1 / value2,
+    "%": value1 % value2
+}[operator];
+});
+
+hbs.registerHelper('numberFormat', function (value, options) {
+  // Parse to float
+  var value = parseFloat(value);
+ 
+  // Formats the number with the decimals
+  var num = value.toFixed(0);
+
+  // Returns the formatted number
+  return  num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+});
+
+hbs.registerHelper('categoryEN', function (value, options) {
+  switch(value){
+    case 'Thịt cá': 
+      return 'meat';
+    case 'Đồ khô':
+      return 'dry';
+    case 'Gạo':
+      return 'rice';
+    case 'Rau củ':
+      return 'vegetable';
+    case 'Đồ dùng bếp':
+      return 'kitchen';
+    case 'Phòng ăn':
+      return 'diningRoom';
+    case 'Đèn diện':
+      return 'light';
+    case 'Vệ sinh nhà cửa':
+      return 'cleaning';
+    case 'Dầu gội':
+      return 'shampoo';
+    case 'Đồ dùng':
+      return 'utensil';
+    case 'Phấn':
+      return 'powder';
+    case 'Sữa':
+      return 'milk';
+    case 'Nước suối':
+      return 'springWater';
+    case 'Nước ngọt':
+      return 'soft';
+    case 'Bia rượu':
+      return 'alcohol';
+    case 'Nước yến':
+      return 'nest';
+    case 'Ăn vặt':
+      return 'gourmet';
+    case 'Khác':
+      return 'other';
+    default: return '';
+  }
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

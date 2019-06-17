@@ -1,9 +1,9 @@
-﻿<!-- breadcrumbs -->
+<!-- breadcrumbs -->
 <div class="breadcrumbs">
 	<div class="container">
 		<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
 			<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-			<li class="active">Ăn vặt</li>
+			<li class="active">{{categoryGetVN}}</li>
 		</ol>
 	</div>
 </div>
@@ -84,7 +84,7 @@
 						<div class="agile_top_brand_left_grid">
 							<div class="agile_top_brand_left_grid_pos">
 								{{#isSale this.sale}}
-								<h4 class="absolute-text">10%</h4>
+								<h4 class="absolute-text">{{this.sale}}%</h4>
 								<img src="/images/sale.png" alt=" " class="img-responsive">
 								{{/isSale}}
 							</div>
@@ -92,8 +92,11 @@
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="/products/food/meat/{{this._id}}"><img class="listProduct"
-													title=" " alt=" " src="{{this.imgSrc}}"></a>
+
+											<a href="/products/{{categoryEN this.category}}/{{this._id}}"><img
+													class="listProduct" title=" " alt=" " src="{{this.imgSrc}}"></a>
+
+
 											<p>{{this.name}}</p>
 											{{#isSale this.sale}}
 											<h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
@@ -135,27 +138,83 @@
 			{{/each}}
 
 
-			<nav class="numbering">
-				<ul class="pagination paging">
-					<li>
-						<a href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li>
-						<a href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
+			{{#ifCond count "<=" 0}}
+			<h4>Trang cuối</h4>
+			{{/ifCond}}
 		</div>
 		<div class="clearfix"> </div>
 	</div>
+	<nav class="numbering">
+		<ul class="pagination paging">
+			<li>
+				<a id="prev" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			<li class="active"><a id="page1">{{page}}</a></li>
+			<li><a id="page2"></a></li>
+			<li><a id="page3"></a></li>
+			<li>
+				<a id="next" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
 </div>
 <!--- gourmet --->
+<script>
+	$('#page2').click(function () {
+		if ({{count}} == 9) {
+			$('#page2').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page2);
+			$('#page1').removeClass('active');
+			$('#page2').addClass('active');
+			$('#page3').removeClass('active');
+			$('#page1').html(page1);
+			$('#page2').html(page2);
+			$('#page3').html(page3);
+			console.log(page3);
+		}
+	});
+	$('#page3').click(function () {
+		if ({{count}} == 9) {
+			$('#page3').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page3);
+			$('#page1').removeClass('active');
+			$('#page2').removeClass('active');
+			$('#page3').addClass('active');
+			$('#page1').html(page1);
+			$('#page2').html(page2);
+			$('#page3').html(page3);
+		}
+	});
+	$('#next').click(function () {
+		if ({{count}} == 9) {
+			page1 += 1;
+			page2 += 1;
+			page3 += 1;
+			$('#next').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page1);
+			$('#page1').addClass('active');
+			$('#page2').removeClass('active');
+			$('#page3').removeClass('active');
+			$('#page1').html(page1);
+			$('#page2').html(page2);
+			$('#page3').html(page3);
+		}
+	});
+	$('#prev').click(function () {
+		if (page1 > 1) {
+			page1 -= 1;
+			page2 -= 1;
+			page3 -= 1;
+			$('#prev').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page1);
+			$('#page1').addClass('active');
+			$('#page2').removeClass('active');
+			$('#page3').removeClass('active');
+			$('#page1').html(page1);
+			$('#page2').html(page2);
+			$('#page3').html(page3);
+		}
+	});
+	$('#page2').html(page2);
+	$('#page3').html(page3);
+</script>

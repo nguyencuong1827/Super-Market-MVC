@@ -63,47 +63,61 @@
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				{{#each Product}}
-				<div class="col-md-4 agile_top_brands_grids">
-					<div class="top_brand_left">
-						<div class="hover14 column">
-							<div class="agile_top_brand_left_grid">
-								<div class="agile_top_brand_left_grid_pos">
-									<img src="/images/offer.png" alt=" " class="img-responsive">
-								</div>
-								<div class="agile_top_brand_left_grid1">
-									<figure>
-										<div class="snipcart-item block">
-											<div class="snipcart-thumb">
-												<a href="/products/babyCare/utensil/{{this._id}}"><img class="listProduct" title=" " alt=" " src="{{this.imgSrc}}"></a>		
-												<p>{{this.name}}</p>
-												<h4>{{this.sale}} đ<span>{{this.price}}</span></h4>
-											</div>
-											<div class="snipcart-details top_brand_home_details">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart">
-														<input type="hidden" name="add" value="1">
-														<input type="hidden" name="business" value=" ">
-														<input type="hidden" name="item_name" value="Fortune Sunflower Oil">
-														<input type="hidden" name="amount" value="35.000 đ">
-														<input type="hidden" name="discount_amount" value="1.000">
-														<input type="hidden" name="currency_code" value="USD">
-														<input type="hidden" name="return" value=" ">
-														<input type="hidden" name="cancel_return" value=" ">
-														<input type="submit" name="submit" value="Thêm vào giỏ" class="button">
-													</fieldset>
-												</form>
-											</div>
+			{{#each Product}}
+			<div class="col-md-4 agile_top_brands_grids">
+				<div class="top_brand_left">
+					<div class="hover14 column">
+						<div class="agile_top_brand_left_grid">
+							<div class="agile_top_brand_left_grid_pos">
+								{{#isSale this.sale}}
+								<h4 class="absolute-text">10%</h4>
+								<img src="/images/sale.png" alt=" " class="img-responsive">
+								{{/isSale}}
+							</div>
+							<div class="agile_top_brand_left_grid1">
+								<figure>
+									<div class="snipcart-item block">
+										<div class="snipcart-thumb">
+											<a href="/products/food/meat/{{this._id}}"><img class="listProduct"
+													title=" " alt=" " src="{{this.imgSrc}}"></a>
+											<p>{{this.name}}</p>
+											{{#isSale this.sale}}
+											<h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}} đ
+												<span>{{numberFormat this.price}} đ</span>
+											</h4>
+
+											{{/isSale}}
+											{{#isNotSale this.sale}}
+											<h4>{{numberFormat this.price}} đ</h4>
+											{{/isNotSale}}
+
 										</div>
-									</figure>
-								</div>
+										<div class="snipcart-details top_brand_home_details">
+											<form action="#" method="post">
+												<fieldset>
+													<input type="hidden" name="cmd" value="_cart">
+													<input type="hidden" name="add" value="1">
+													<input type="hidden" name="business" value=" ">
+													<input type="hidden" name="item_name" value="Fortune Sunflower Oil">
+													<input type="hidden" name="amount" value="35.000 đ">
+													<input type="hidden" name="discount_amount" value="1.000">
+													<input type="hidden" name="currency_code" value="USD">
+													<input type="hidden" name="return" value=" ">
+													<input type="hidden" name="cancel_return" value=" ">
+													<input type="submit" name="submit" value="Thêm vào giỏ"
+														class="button">
+												</fieldset>
+											</form>
+										</div>
+									</div>
+								</figure>
 							</div>
 						</div>
 					</div>
-						<div class="clearfix"> </div>
 				</div>
-				{{/each}}
+				<div class="clearfix"> </div>
+			</div>
+			{{/each}}
 
 
 				

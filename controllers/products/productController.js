@@ -1,243 +1,129 @@
 const product = require('../../models/productModel');
-//Get all item
+
+
+//Trang khác
+exports.load_next_page = async(req, res) => {
+    const categoryEnglish = req.params.categoryEnglish;
+    const page = req.params.page || 1;
+    product.listProductPerPage(categoryEnglish, '', page, res)
+};
+
 //Đồ uống
 exports.drink_alcohol_list = async(req, res) => {
-    await product.find({'category': 'Bia rượu'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/drink/alcohol',{title:'Bia rượu', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('alcohol' ,'Bia rượu', page, res);
 };
 
 exports.drink_nest_list = async(req, res) => {
 
-    await product.find({'category': 'Nước yến'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/drink/nest',{title:'Nước yến', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('nest' ,'Nước yến', page, res);
 };
 
 exports.drink_soft_list = async(req, res) => {
-
-    await product.find({'category': 'Nước ngọt'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/drink/soft',{title:'Nước ngọt', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('soft' ,'Nước ngọt', page, res);
 };
 
 exports.drink_springWater_list = async(req, res) => {
-
-    await product.find({'category': 'Nước suối'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/drink/springWater',{title:'Nước suối', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('springWater','Nước suối', page, res);
 };
 
 
 
 //Thực phẩm
 exports.food_dry_list = async(req, res) => {
-
-    await product.find({'category': 'Đồ khô'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/food/dry',{title:'Đồ khô', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('dry','Đồ khô', page, res);
 };
 
 exports.food_meat_list = async(req, res) => {
-
-    await  product.find({'category': 'Thịt cá'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/food/meat',{title:'Thịt cá', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('meat', 'Thịt cá', page, res);
 };
 
 exports.food_rice_list = async(req, res) => {
-
-    await product.find({'category': 'Gạo'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/food/rice',{title:'Gạo', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('rice' ,'Gạo', page, res);
 };
 
 exports.food_vegetable_list = async(req, res) => {
-
-    await product.find({'category': 'Rau củ'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/food/vegetable',{title:'Rau củ', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('vegetable', 'Rau củ', page, res);
 };
 
 
 //Ăn vặt
 exports.gourmet_list = async(req, res) => {
-
-    await product.find({'category': 'Ăn vặt'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/gourmet',{title:'Ăn vặt', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('gourmet', 'Ăn vặt', page, res);
 };
 
 //Đồ gia dụng
 exports.houseware_cleaning_list = async(req, res) => {
-
-    await product.find({'category': 'Vệ sinh nhà cửa'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/houseware/cleaning',{title:'Vệ sinh nhà cửa', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('cleaning', 'Vệ sinh nhà cửa', page, res);
 };
 
 exports.houseware_diningRoom_list = async(req, res) => {
-
-    await product.find({'category': 'Phòng ăn'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/houseware/diningRoom',{title:'Phòng ăn', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('diningRoom', 'Phòng ăn', page, res);
 };
 
 exports.houseware_kitchen_list = async(req, res) => {
-
-    await product.find({'category': 'Dụng cụ bếp'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/houseware/kitchen',{title:'Dụng cụ bếp', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('kitchen', 'Dụng cụ bếp', page, res);
 };
 
 exports.houseware_light_list = async(req, res) => {
-
-    await product.find({'category': 'Đèn điện'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/houseware/light',{title:'Đèn điện', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('light', 'Đèn điện', page, res);
 };
 
 //Em bé
 exports.babyCare_milk_list = async(req, res) => {
-
-    await product.find({'category': 'Sữa'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/babyCare/milk',{title:'Sữa', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('milk', 'Sữa', page, res);
 };
 
 exports.babyCare_powder_list = async(req, res) => {
-
-    await product.find({'category': 'Phấn'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/babyCare/powder',{title:'Phấn', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('powder', 'Phấn', page, res);
 };
 
 exports.babyCare_shampoo_list = async(req, res) => {
-
-    await product.find({'category': 'Dầu gội'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/babyCare/shampoo',{title:'Dầu gội', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('shampoo', 'Dầu gội', page, res);
 };
 
 exports.babyCare_utensil_list = async(req, res) => {
+    var page = req.params.page || 1;
+    product.listProductPerPage('utensil', 'Đồ dùng', page, res);
+};
 
-    await product.find({'category': 'Đồ dùng'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/babyCare/utensil',{title:'Đồ dùng', Product});
-        }
-    })
+//Ăn vặt
+exports.gourmet_list = async(req, res) => {
+    var page = req.params.page || 1;
+    product.listProductPerPage('gourmet', 'Ăn vặt', page, res);
 };
 
 //Khác
 exports.other_list = async(req, res) => {
-
-    await product.find({'category': 'Khác'}).exec((err,Product)=>{
-        if(err){
-            console.log('that bai');
-        }
-        else{
-            res.render('listProduct/other',{title:'Khác', Product});
-        }
-    })
+    var page = req.params.page || 1;
+    product.listProductPerPage('other', 'Khác', page, res);
 };
 
 //Khuyến mãi
-exports.sale_list = function(req, res) {
-    res.render('listProduct/salePage', {title:'Khuyển mãi'});
+exports.sale_list = async(req, res) => {
+    var page = req.params.page || 1;
+    product.listProductSale(70, res);
 }
+
 
 //VIEW single product
 exports.detailProduct = async (req, res) => {
-    await product.findById(req.params.id).then(productFound =>{
-        if (!productFound)
-        {
-            res.send('that bai');
-        }
-        res.render('detailProduct/single', {title:'Chi tiết', productFound})
-    })
+    product.viewDetailProduct(res, req.params.id);
     //res.render('viewProduct/single')
 }
 

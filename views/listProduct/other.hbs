@@ -82,16 +82,29 @@
 					<div class="hover14 column">
 						<div class="agile_top_brand_left_grid">
 							<div class="agile_top_brand_left_grid_pos">
-								<img src="/images/offer.png" alt=" " class="img-responsive">
+								{{#isSale this.sale}}
+								<h4 class="absolute-text">10%</h4>
+								<img src="/images/sale.png" alt=" " class="img-responsive">
+								{{/isSale}}
 							</div>
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="/products/other/all/{{this.uri}}"><img class="listProduct" title=" " alt=" "
-													src="{{this.imgSrc}}"></a>
+											<a href="/products/food/meat/{{this._id}}"><img class="listProduct"
+													title=" " alt=" " src="{{this.imgSrc}}"></a>
 											<p>{{this.name}}</p>
-											<h4>{{this.sale}} đ <span>{{this.price}}</span></h4>
+											{{#isSale this.sale}}
+											<h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
+												đ
+												<span>{{numberFormat this.price}} đ</span>
+											</h4>
+
+											{{/isSale}}
+											{{#isNotSale this.sale}}
+											<h4>{{numberFormat this.price}} đ</h4>
+											{{/isNotSale}}
+
 										</div>
 										<div class="snipcart-details top_brand_home_details">
 											<form action="#" method="post">
@@ -120,7 +133,7 @@
 			</div>
 			{{/each}}
 
-			
+
 			<nav class="numbering">
 				<ul class="pagination paging">
 					<li>
