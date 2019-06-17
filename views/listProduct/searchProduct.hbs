@@ -1,0 +1,307 @@
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+            <li class="active">Tìm kiếm</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<!--- gourmet --->
+<div class="products">
+    <div class="container">
+        <div class="col-md-4 products-left">
+            <div class="categories">
+                <h2>Danh mục</h2>
+                <ul class="cate">
+                    <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Trái cây và rau củ</a>
+                    </li>
+                    <ul>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau mầm</a></li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Hoa</a></li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Thảo mộc</a></li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau</a> </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau nhập khẩu</a>
+                        </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sản phẩm hữu cơ</a>
+                        </li>
+                    </ul>
+                    <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đồ khô</a></li>
+                    <ul>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Các loại hạt</a>
+                        </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Mứt</a> </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Gạo</a> </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Các loại khô</a>
+                        </li>
+                    </ul>
+                    <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Mẹ và bé</a></li>
+                    <ul>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Dầu gội</a> </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Phụ kiện</a> </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Kem dưỡng da</a>
+                        </li>
+                        <li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Tã và khăn</a> </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 products-right">
+            <div class="products-right-grid">
+                <div class="products-right-grids">
+                    <div class="sorting">
+                        <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp xếp theo
+                            </option>
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sự phổ biến
+                            </option>
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Giá từ thấp đến cao
+                            </option>
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Giá từ cao đến thấp
+                            </option>
+                        </select>
+                    </div>
+                    <div class="sorting-left">
+                        <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sản phẩm trên trang
+                                9</option>
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sản phẩm trên trang
+                                18</option>
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sản phẩm trên trang
+                                32</option>
+                            <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Tất cả</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <h4>{{noMatch}}</h4>
+            <div id="searchWithKeyword">
+                {{#each Product}}
+                <div class="col-md-4 agile_top_brands_grids">
+                    <div class="top_brand_left">
+                        <div class="hover14 column">
+                            <div class="agile_top_brand_left_grid">
+                                <div class="agile_top_brand_left_grid_pos">
+                                    {{#isSale this.sale}}
+                                    <h4 class="absolute-text">{{this.sale}}%</h4>
+                                    <img src="/images/sale.png" alt=" " class="img-responsive">
+                                    {{/isSale}}
+                                </div>
+                                <div class="agile_top_brand_left_grid1">
+                                    <figure>
+                                        <div class="snipcart-item block">
+                                            <div class="snipcart-thumb">
+
+                                                <a href="/products/{{categoryEN this.category}}/{{this._id}}"><img
+                                                        class="listProduct" title=" " alt=" " src="{{this.imgSrc}}"></a>
+
+
+                                                <p>{{this.name}}</p>
+                                                <div class="stars">
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                </div>
+                                                {{#isSale this.sale}}
+                                                <h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
+                                                    đ
+                                                    <span>{{numberFormat this.price}} đ</span>
+                                                </h4>
+
+                                                {{/isSale}}
+                                                {{#isNotSale this.sale}}
+                                                <h4>{{numberFormat this.price}} đ</h4>
+                                                {{/isNotSale}}
+
+                                            </div>
+                                            <div class="snipcart-details top_brand_home_details">
+                                                <form action="#" method="post">
+                                                    <fieldset>
+                                                        <input type="hidden" name="cmd" value="_cart">
+                                                        <input type="hidden" name="add" value="1">
+                                                        <input type="hidden" name="business" value=" ">
+                                                        <input type="hidden" name="item_name"
+                                                            value="Fortune Sunflower Oil">
+                                                        <input type="hidden" name="amount" value="35.000 đ">
+                                                        <input type="hidden" name="discount_amount" value="1.000">
+                                                        <input type="hidden" name="currency_code" value="USD">
+                                                        <input type="hidden" name="return" value=" ">
+                                                        <input type="hidden" name="cancel_return" value=" ">
+                                                        <input type="submit" name="submit" value="Thêm vào giỏ"
+                                                            class="button">
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                {{/each}}
+            </div>
+
+            {{#ifCond count "<=" 0}}
+            <h4>Trang cuối</h4>
+            {{/ifCond}}
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <nav class="numbering">
+        <ul class="pagination paging">
+            <li>
+                <a id="prev" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="active"><a id="page1">{{page}}</a></li>
+            <li><a id="page2"></a></li>
+            <li><a id="page3"></a></li>
+            <li>
+                <a id="next" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!--- gourmet --->
+<script>
+    var page1 = parseInt($('#page1').html());
+    var page2 = page1 + 1;
+    var page3 = page1 + 2;
+    $('#page2').click(function () {
+        if ({{ count }} == 2) {
+        $('#page2').attr("href", "/products/searchProduct/search={{text}}/" + page2);
+        $('#page1').removeClass('active');
+        $('#page2').addClass('active');
+        $('#page3').removeClass('active');
+        $('#page1').html(page1);
+        $('#page2').html(page2);
+        $('#page3').html(page3);
+        console.log(page3);
+    }
+	});
+    $('#page3').click(function () {
+        if ({{ count }} == 9) {
+        $('#page3').attr("href", "/products/searchProduct/search={{text}}/" + page3);
+        $('#page1').removeClass('active');
+        $('#page2').removeClass('active');
+        $('#page3').addClass('active');
+        $('#page1').html(page1);
+        $('#page2').html(page2);
+        $('#page3').html(page3);
+    }
+	});
+    $('#next').click(function () {
+        if ({{ count }} == 9) {
+        page1 += 1;
+        page2 += 1;
+        page3 += 1;
+        $('#next').attr("href", "/products/searchProduct/search={{text}}/" + page1);
+        $('#page1').addClass('active');
+        $('#page2').removeClass('active');
+        $('#page3').removeClass('active');
+        $('#page1').html(page1);
+        $('#page2').html(page2);
+        $('#page3').html(page3);
+    }
+	});
+    $('#prev').click(function () {
+        if (page1 > 1) {
+            page1 -= 1;
+            page2 -= 1;
+            page3 -= 1;
+            $('#prev').attr("href", "/products/searchProduct/search={{text}}/" + page1);
+            $('#page1').addClass('active');
+            $('#page2').removeClass('active');
+            $('#page3').removeClass('active');
+            $('#page1').html(page1);
+            $('#page2').html(page2);
+            $('#page3').html(page3);
+        }
+    });
+    $('#page2').html(page2);
+    $('#page3').html(page3);
+</script>
+
+<script>
+    $('#search').keyup(function () {
+        var search = document.getElementById("search")
+        $.getJSON('../../../api/productAPI/searchKeyword?search=' + $('#search').val(), function (data, res) {
+            if (!data) {
+                console.log('Khong co')
+                $('#error-message').html('Không tìm thấy sản phẩm.');
+            }
+            else {
+                var source = $('#searchWithKeyword');
+                source.empty();
+                console.log(data);
+                $.each(data, function (i, database) {
+                    source.append('<div class="col-md-4 agile_top_brands_grids">' +
+                        '<div class="top_brand_left">' +
+                        '<div class="hover14 column">' +
+                        '<div class="agile_top_brand_left_grid">' +
+                        '<div class="agile_top_brand_left_grid_pos">' +
+                        '{{' + #isSale +  + database.sale + '}}' +
+                        '<h4 class="absolute-text">' + database.sale + '%</h4>' +
+                        '<img src="/images/sale.png" alt=" " class="img-responsive">' +
+                        '{{' + /isSale + '}}' +
+                        '</div>' +
+                        '<div class="agile_top_brand_left_grid1">' +
+                        '<figure>' +
+                        '<div class="snipcart-item block">' +
+                        '<div class="snipcart-thumb">' +
+                        '<a href="/products/categoryEN '+ database.category + '/' +database._id + '"><img class="listProduct" title=" " alt=" " src="'+database.imgSrc+'"></a>' +
+                        '<p>' + database.name + '</p>' +
+                        '<div class="stars">' +
+                                                    '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
+                                                    '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
+                                                    '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
+                                                    '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
+                                                    '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
+                        '</div>' +
+                        '{{#isSale ' + database.sale + '}}' +
+                        '<h4>{{numberFormat (math ' + database.price +' "-" (math ' + database.price + ' "*" (math ' + database.sale + ' "/" 100)))}} đ<span>{{numberFormat ' + database.price + '}} đ</span></h4>' +
+                        '{{/isSale}}' +
+                        '{{#isNotSale ' + database.sale + '}}' +
+                        '<h4>{{numberFormat ' + database.price + '}} đ</h4>' +
+                        '{{/isNotSale}}' +
+
+                        '</div>' +
+                        '<div class="snipcart-details top_brand_home_details">' +
+                        '<form action="#" method="post">' +
+                        '<fieldset>' +
+                        '<input type="hidden" name="cmd" value="_cart">' +
+                        '<input type="hidden" name="add" value="1">' +
+                        '<input type="hidden" name="business" value=" ">' +
+                        '<input type="hidden" name="item_name" value="{{' + database.name + '}}">' +
+                        '<input type="hidden" name="amount" value="{{' + database.price + '}}">' +
+                        '<input type="hidden" name="discount_amount" value="{{' + database.sale + '}}">' +
+                        '<input type="hidden" name="currency_code" value="đ">' +
+                        '<input type="hidden" name="return" value=" ">' +
+                        '<input type="hidden" name="cancel_return" value=" "> ' +
+                        '<input type="submit" name="submit" value="Thêm vào giỏ" ' +
+                        'class="button">' +
+                        '</fieldset>' +
+                        '</form>' +
+                        '</div>' +
+                        '</div>' +
+                        '</figure>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="clearfix"> </div>'+
+                        '</div>');
+                })
+            }
+        })
+    })
+</script>

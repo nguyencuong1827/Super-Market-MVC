@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var productsRouter = require('./routes/products');
 const apiUserRouter = require('./routes/api/userAPI');
+const apiProductRouter = require('./routes/api/productAPI');
 
 require('./config/passport')(passport);
 
@@ -210,8 +211,10 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/products', productsRouter);
 app.use('/api/userAPI', apiUserRouter);
+app.use('/api/productAPI', apiProductRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+  console.log(req.originalUrl);
   next(createError(404));
 });
 

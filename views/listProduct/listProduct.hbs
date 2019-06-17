@@ -15,35 +15,31 @@
 			<div class="categories">
 				<h2>Danh mục</h2>
 				<ul class="cate">
-					<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Trái cây và rau củ</a>
-					</li>
+					<li><a><i class="fa fa-arrow-right" aria-hidden="true"></i>Thực phẩm</a> </li>
 					<ul>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau mầm</a></li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Hoa</a></li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Thảo mộc</a></li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau</a> </li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau nhập khẩu</a>
-						</li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sản phẩm hữu cơ</a>
-						</li>
+						<li><a href="/products/meat"><i class="fa fa-arrow-right" aria-hidden="true"></i>Thịt cá</a></li>
+						<li><a href="/products/vegetable"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rau củ</a></li>
+						<li><a href="/products/rice"><i class="fa fa-arrow-right" aria-hidden="true"></i>Gạo</a></li>
+						<li><a href="/products/dry"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đồ khô</a> </li>
+						
 					</ul>
-					<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đồ khô</a></li>
+					<li><a><i class="fa fa-arrow-right" aria-hidden="true"></i>Đồ gia dụng</a> </li>
 					<ul>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Các loại hạt</a>
-						</li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Mứt</a> </li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Gạo</a> </li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Các loại khô</a>
-						</li>
+						<li><a href="/products/kitchen"><i class="fa fa-arrow-right" aria-hidden="true"></i>Dụng cụ bếp</a></li>
+						<li><a href="/products/diningRoom"><i class="fa fa-arrow-right" aria-hidden="true"></i>Phòng ăn</a> </li>
+						<li><a href="/products/light"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đèn điện</a> </li>
+						<li><a href="/products/cleaning"><i class="fa fa-arrow-right" aria-hidden="true"></i>Vệ sinh nhà cửa</a></li>
 					</ul>
-					<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Mẹ và bé</a></li>
+					<li><a><i class="fa fa-arrow-right" aria-hidden="true"></i>Em bé</a> </li>
 					<ul>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Dầu gội</a> </li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Phụ kiện</a> </li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Kem dưỡng da</a>
+						<li><a href="/products/shampoo"><i class="fa fa-arrow-right" aria-hidden="true"></i>Dầu gội</a> </li>
+						<li><a href="/products/utensil"><i class="fa fa-arrow-right" aria-hidden="true"></i>Đồ dùng</a> </li>
+						<li><a href="/products/powder"><i class="fa fa-arrow-right" aria-hidden="true"></i>Phấn</a>
 						</li>
-						<li><a href="/products"><i class="fa fa-arrow-right" aria-hidden="true"></i>Tã và khăn</a> </li>
+						<li><a href="/products/milk"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sữa</a> </li>
 					</ul>
+					<li><a href="/products/gourmet"><i class="fa fa-arrow-right" aria-hidden="true"></i>Ăn vặt</a> </li>
+					<li><a href="/products/other"><i class="fa fa-arrow-right" aria-hidden="true"></i>Khác</a> </li>
 				</ul>
 			</div>
 		</div>
@@ -98,6 +94,13 @@
 
 
 											<p>{{this.name}}</p>
+											<div class="stars">
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star gray-star" aria-hidden="true"></i>
+													</div>
 											{{#isSale this.sale}}
 											<h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
 												đ
@@ -164,6 +167,9 @@
 </div>
 <!--- gourmet --->
 <script>
+	var page1 = parseInt($('#page1').html());
+    var page2 = page1 + 1;
+    var page3 = page1 + 2;
 	$('#page2').click(function () {
 		if ({{count}} == 9) {
 			$('#page2').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page2);

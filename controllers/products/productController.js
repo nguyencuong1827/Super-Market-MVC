@@ -121,6 +121,20 @@ exports.sale_list = async(req, res) => {
 }
 
 
+//Tìm kiếm
+
+exports.search_list = async (req, res) => {
+    var page = req.params.page || 1;
+    var text = req.query.search;
+    product.searchProduct(text, page, res);
+}
+
+exports.search_list1 = async (req, res) => {
+    var page = req.params.page || 1;
+    var text = req.params.text;
+    product.searchProduct(text, page, res);
+}
+
 //VIEW single product
 exports.detailProduct = async (req, res) => {
     product.viewDetailProduct(res, req.params.id);

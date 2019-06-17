@@ -359,8 +359,12 @@ ul.multi-column-dropdown h6 {
 	margin:0 auto;
 }
 .top-brands{
-    background: #f5f5f5;
-	padding:5em 0;
+    padding: 2em 0;
+    background-color:#a4aaac;
+}
+.backgroundImage{
+    background-image: url("/public/images/22.jpg");
+    background-repeat: no-repeat;
 }
 .agile_top_brand_left_grid1 p{
 	color:#212121;
@@ -514,7 +518,8 @@ ul.multi-column-dropdown h6 {
 }
 /*-- //top-brands --*/
 div#myTabContent {
-    padding: 40px 40px;
+    padding: 10px 10px;
+    margin: 0em 0em 2em 0em;
 }
 .nav-tabs > li {
     width: 50%;

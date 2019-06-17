@@ -46,4 +46,7 @@ router.get('/:categoryEnglish/viewPage/:page', products_controller.load_next_pag
 //Trang kế của sản phẩm khuyến mãi
 router.get('/sale/viewPage/:page', products_controller.sale_list);
 
-module.exports = router;
+//Tìm kiếm 
+router.get('/searchProduct', products_controller.search_list);
+router.get('/searchProduct/search=:text/:page', products_controller.search_list1);
+module.exports = router; 
