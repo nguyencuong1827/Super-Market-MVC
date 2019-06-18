@@ -102,10 +102,7 @@
 														<i class="fa fa-star gray-star" aria-hidden="true"></i>
 													</div>
 											{{#isSale this.sale}}
-											<h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
-												đ
-												<span>{{numberFormat this.price}} đ</span>
-											</h4>
+											<h4>{{getPrice this.price this.sale}} đ <span>{{numberFormat this.price}} đ</span></h4>
 
 											{{/isSale}}
 											{{#isNotSale this.sale}}
@@ -171,7 +168,7 @@
     var page2 = page1 + 1;
     var page3 = page1 + 2;
 	$('#page2').click(function () {
-		if ({{count}} == 9) {
+		if ({{count}} == 2) {
 			$('#page2').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page2);
 			$('#page1').removeClass('active');
 			$('#page2').addClass('active');
@@ -183,7 +180,7 @@
 		}
 	});
 	$('#page3').click(function () {
-		if ({{count}} == 9) {
+		if ({{count}} == 2) {
 			$('#page3').attr("href", "/products/{{categoryEnglish}}/viewPage/" + page3);
 			$('#page1').removeClass('active');
 			$('#page2').removeClass('active');
@@ -194,7 +191,7 @@
 		}
 	});
 	$('#next').click(function () {
-		if ({{count}} == 9) {
+		if ({{count}} == 2) {
 			page1 += 1;
 			page2 += 1;
 			page3 += 1;

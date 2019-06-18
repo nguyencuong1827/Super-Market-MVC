@@ -44,8 +44,7 @@
 				<div class="snipcart-item block">
 					<div class="snipcart-thumb agileinfo_single_right_snipcart">
 						{{#isSale productFound.sale}}
-						<h4 class="m-sing">{{numberFormat (math productFound.price "-" (math productFound.price "*" (math productFound.sale "/" 100)))}}
-							đ
+						<h4 class="m-sing">{{getPrice productFound.price productFound.sale}} đ
 							<span>{{numberFormat productFound.price}} đ</span>
 						</h4>
 
@@ -77,7 +76,8 @@
 	</div>
 </div>
 <!-- new -->
-<div class="newproducts-w3agile">
+
+<!--<div class="newproducts-w3agile">
 	<div class="container">
 		<h3>Những sản phẩm bán chạy</h3>
 		<div class="agile_top_brands_grids">
@@ -260,5 +260,5 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-</div>
+</div>//-->
 <!-- //new -->

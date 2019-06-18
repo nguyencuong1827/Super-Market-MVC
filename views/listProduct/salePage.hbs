@@ -104,9 +104,7 @@
 														<i class="fa fa-star blue-star" aria-hidden="true"></i>
 														<i class="fa fa-star gray-star" aria-hidden="true"></i>
 													</div>
-											<h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
-												đ
-												<span>{{numberFormat this.price}} đ</span>
+											<h4>{{getPrice this.price this.sale}} đ<span>{{numberFormat this.price}} đ</span>
 											</h4>
 
 											

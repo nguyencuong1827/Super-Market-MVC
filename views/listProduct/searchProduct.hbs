@@ -107,9 +107,7 @@
                                                     <i class="fa fa-star gray-star" aria-hidden="true"></i>
                                                 </div>
                                                 {{#isSale this.sale}}
-                                                <h4>{{numberFormat (math this.price "-" (math this.price "*" (math this.sale "/" 100)))}}
-                                                    đ
-                                                    <span>{{numberFormat this.price}} đ</span>
+                                                <h4>{{getPrice this.price this.sale}} đ <span>{{numberFormat this.price}} đ</span>
                                                 </h4>
 
                                                 {{/isSale}}
@@ -249,7 +247,7 @@
                         '<div class="hover14 column">' +
                         '<div class="agile_top_brand_left_grid">' +
                         '<div class="agile_top_brand_left_grid_pos">' +
-                        '{{' + #isSale +  + database.sale + '}}' +
+                        '{{' + #isSale  + database.sale + '}}' +
                         '<h4 class="absolute-text">' + database.sale + '%</h4>' +
                         '<img src="/images/sale.png" alt=" " class="img-responsive">' +
                         '{{' + /isSale + '}}' +
@@ -267,12 +265,10 @@
                                                     '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
                                                     '<i class="fa fa-star blue-star" aria-hidden="true"></i>' +
                         '</div>' +
-                        '{{#isSale ' + database.sale + '}}' +
-                        '<h4>{{numberFormat (math ' + database.price +' "-" (math ' + database.price + ' "*" (math ' + database.sale + ' "/" 100)))}} đ<span>{{numberFormat ' + database.price + '}} đ</span></h4>' +
-                        '{{/isSale}}' +
-                        '{{#isNotSale ' + database.sale + '}}' +
-                        '<h4>{{numberFormat ' + database.price + '}} đ</h4>' +
-                        '{{/isNotSale}}' +
+                        
+                        
+                        '<h4>' + database.price + 'đ</h4>' +
+                        
 
                         '</div>' +
                         '<div class="snipcart-details top_brand_home_details">' +

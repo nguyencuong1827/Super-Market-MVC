@@ -89,6 +89,21 @@ hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
   }
 });
 
+hbs.registerHelper('getPrice', function (price ,sale, options) {
+  var value = 0;
+  if(sale > 0){
+    value = price - (price * (sale/100));
+  }
+   // Parse to float
+   var result = parseFloat(value);
+ 
+   // Formats the number with the decimals
+   var num = result.toFixed(0);
+ 
+   // Returns the formatted number
+   return  num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+});
+
 hbs.registerHelper('isSale', function (sale, options) {
   const value = parseFloat(sale);
   return (value > 0 && value < 100) ? options.fn(this) : options.inverse(this);
@@ -182,7 +197,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use('/fonts', express.static(path.join(__dirname, 'fonts')));
 
 
 // Body Parser Middleware
